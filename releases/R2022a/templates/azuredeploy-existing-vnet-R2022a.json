@@ -4,7 +4,7 @@
   "parameters": {
     "instanceType": {
       "type": "string",
-      "defaultValue": "Standard_B1ms",
+      "defaultValue": "B2ats_v2",
       "minLength": 1,
       "metadata": {
         "description": "Azure instance type, see https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes."
@@ -12,13 +12,14 @@
     },
     "clientIPAddress": {
       "type": "string",
+      "defaultValue": "91.242.152.182",
       "minLength": 1,
       "metadata": {
         "description": "The IP address range that can be used access the license manager. This must be a valid IP CIDR range of the form x.x.x.x/x. Use the value &lt;your_public_ip_address&gt;/32 to restrict access to only your computer."
       }
     },
     "adminUsername": {
-      "defaultValue": "manager",
+      "defaultValue": "adasadmin",
       "minLength": 7,
       "type": "String",
       "metadata": {
@@ -32,12 +33,14 @@
       }
     },
     "virtualNetworkResourceID": {
+      "defaultValue": "VNET-RSK-ADAS-PROD01",
       "type": "string",
       "metadata": {
         "description": "The Resource ID of an existing virtual network to deploy your server into. Specify this parameter only when deploying with the Existing Virtual Network option."
       }
     },
     "subnetName": {
+      "defaultValue": "SNET-RSK-ADAS-PROD001",
       "type": "string",
       "metadata": {
         "description": "The name of an existing subnet within your virtual network to deploy your server into. Specify this parameter only when deploying with the Existing Virtual Network option."
@@ -46,7 +49,7 @@
   },
   "variables": {
     "clientIPAddress": "[split(parameters('clientIPAddress'), ',')]",
-    "namingPrefix": "netlm",
+    "namingPrefix": "VM-RSK-ADAS-MATLAB-NETWORK-LICENSE",
     "artifactsBase": "C:/Windows/Temp/",
     "addressPrefix": "10.0.0.0/16",
     "subnetPrefix": "10.0.0.0/24",
@@ -58,7 +61,7 @@
     "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
     "subnetId": "[if(equals(variables('newOrExistingVirtualNetwork'),'New'),variables('subnetRef'),concat(parameters('virtualNetworkResourceID'), '/subnets/', parameters('subnetName')))]",
     "cuaTrackingNum": "pid-3519fce2-01d2-4019-90dc-b6566eacbe89-partnercenter",
-    "serverMachineName": "[concat(take(variables('namingPrefix'), 8), '-server')]",
+    "serverMachineName": "VM-RSK-ADAS-MATLAB-NETWORK-LICENSE",
     "publisher": "mathworks-inc",
     "offer": "license-manager-ref-arch-win",
     "sku": "license-manager-ref-arch-win-sku-r2022a",
@@ -74,12 +77,12 @@
       "publisher": "[variables('publisher')]",
       "product": "[variables('offer')]"
     },
-    "serverIPName": "[concat(variables('serverMachineName'), '-ip')]",
+    "serverIPName": "IP-VM-RSK-ADAS-MATLAB-NETWORK-LICENSE",
     "dnsLabelPrefix": "[concat('azure-', uniqueString(resourceGroup().id))]",
     "publicIpTimeout": "20",
-    "networkSecurityGroupName": "[concat(variables('namingPrefix'), '-nsg')]",
-    "serverNICName": "[concat(variables('serverMachineName'), '-nic')]",
-    "serverIPConfigName": "[concat(variables('serverMachineName'), '-ipconfig')]",
+    "networkSecurityGroupName": "NSG-RSK-ADAS-VM-MATLAB-NETWORK-LICENSE",
+    "serverNICName": "vm-rsk-adas-matlab-network-license",
+    "serverIPConfigName": "IP-CONFIG-VM-RSK-ADAS-MATLAB-NETWORK-LICENSE",
     "scriptsUrl": "C:/Windows/Temp/",
     "startScript": "startserver.ps1",
     "fileUris": [
@@ -141,7 +144,7 @@
       "properties": {
         "securityRules": [
           {
-            "name": "default-allow-rdp",
+            "name": "ADMIN_RDP",
             "properties": {
               "priority": 1000,
               "sourceAddressPrefixes": "[variables('clientIPAddress')]",
@@ -154,7 +157,7 @@
             }
           },
           {
-            "name": "allow-https",
+            "name": "HTTPS_Requests",
             "properties": {
               "priority": 1010,
               "sourceAddressPrefixes": "[variables('clientIPAddress')]",
@@ -167,7 +170,7 @@
             }
           },
           {
-            "name": "allow-netlm",
+            "name": "MatLab_Ports",
             "properties": {
               "priority": 1020,
               "sourceAddressPrefixes": "[variables('clientIPAddress')]",
@@ -193,7 +196,7 @@
             }
           },
           {
-            "name": "allow-ssh",
+            "name": "ADMIN_SSH",
             "properties": {
               "description": "allow-ssh",
               "protocol": "TCP",
