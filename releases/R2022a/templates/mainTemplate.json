@@ -180,7 +180,7 @@
     "flex-arm-template-link": "https://raw.githubusercontent.com/ADAS-antonio-calatayud/matlab-web-app-server-on-azure/refs/heads/main/releases/R2022a/templates/azuredeploy-existing-vnet-R2022a.json",
     "flex-parameters": {
       "instanceType": {
-        "value": "B2ats_v2"
+        "value": "Standard_B1s"
       },
       "clientIPAddress": {
         "value": "[parameters('IP Addresses Permitted to Remote into Server VM in CIDR Notation')]"

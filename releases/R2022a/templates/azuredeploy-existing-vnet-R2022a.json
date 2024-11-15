@@ -4,7 +4,7 @@
   "parameters": {
     "instanceType": {
       "type": "string",
-      "defaultValue": "B2ats_v2",
+      "defaultValue": "Standard_B1s",
       "minLength": 1,
       "metadata": {
         "description": "Azure instance type, see https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes."
