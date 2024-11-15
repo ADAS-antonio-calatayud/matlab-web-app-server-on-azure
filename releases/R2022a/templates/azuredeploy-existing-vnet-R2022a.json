@@ -61,7 +61,7 @@
     "subnetRef": "[resourceId('Microsoft.Network/virtualNetworks/subnets', variables('virtualNetworkName'), variables('subnetName'))]",
     "subnetId": "[if(equals(variables('newOrExistingVirtualNetwork'),'New'),variables('subnetRef'),concat(parameters('virtualNetworkResourceID'), '/subnets/', parameters('subnetName')))]",
     "cuaTrackingNum": "pid-3519fce2-01d2-4019-90dc-b6566eacbe89-partnercenter",
-    "serverMachineName": "VM-RSK-ADAS-MATLAB-NETWORK-LICENSE",
+    "serverMachineName": "VM-ADAS-ML-NL",
     "publisher": "mathworks-inc",
     "offer": "license-manager-ref-arch-win",
     "sku": "license-manager-ref-arch-win-sku-r2022a",
