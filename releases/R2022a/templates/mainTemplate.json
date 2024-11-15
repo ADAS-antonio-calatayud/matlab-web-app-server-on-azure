@@ -138,7 +138,7 @@
   "variables": {
     "providerID": "D36A3EDC-0566-4EE4-86D3-64F20D2DDA06",
     "location": "[resourceGroup().location]",
-    "vmName": "VM-RSK-ADAS-MATLAB-WEB-APP-SERVER",
+    "vmName": "VM-ADAS-ML-WAS",
     "usePublicIPAddresses": "[parameters('Assign Public IP Address to VM Hosting MATLAB Web App Server')]",
     "addressPrefix": "[parameters('Virtual Network CIDR Range')]",
     "serverPrivateIP": "[parameters('Specify Private IP Address to VM Hosting MATLAB Web App Server')]",
@@ -203,7 +203,7 @@
     {
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2021-04-01",
-      "name": "flex-lm-server",
+      "name": "VM-ADAS-ML-NS",
       "dependsOn": [
         "[resourceId('Microsoft.Network/networkInterfaces/',variables('networkInterfaceName'))]",
         "[resourceId('Microsoft.Network/virtualNetworks/',variables('virtualNetworkName'))]"
