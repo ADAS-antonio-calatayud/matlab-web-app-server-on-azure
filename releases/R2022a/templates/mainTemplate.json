@@ -146,7 +146,7 @@
     "publicIPprop1": {
       "id": "[resourceId('Microsoft.Network/publicIPAddresses',variables('serverPublicIP'))]"
     },
-    "webappDNSName": "[concat('webapp',uniqueString(resourceGroup().id))]",
+    "webappDNSName": "rsk-adas-matlab-web-app-server",
     "networkInterfaceName": "vm-rsk-adas-matlab-web-app",
     "virtualNetworkID": "[resourceId(variables('virtualNetworkResourceGroup'), 'Microsoft.Network/virtualNetworks',variables('virtualNetworkName'))]",
     "virtualNetworkResourceGroup": "[parameters('Resource Group Name Of Virtual Network')]",

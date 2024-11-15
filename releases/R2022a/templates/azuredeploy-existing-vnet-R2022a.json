@@ -127,7 +127,7 @@
       "properties": {
         "publicIPAllocationMethod": "Static",
         "dnsSettings": {
-          "domainNameLabel": "vm-rsk-adas-matlab-network-licence"
+          "domainNameLabel": "rsk-adas-matlab-network-licence"
         },
         "idleTimeoutInMinutes": "[variables('publicIpTimeout')]"
       }
