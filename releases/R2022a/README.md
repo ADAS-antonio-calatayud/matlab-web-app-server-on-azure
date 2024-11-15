@@ -1,10 +1,10 @@
 # MATLAB Web App Server on Microsoft Azure - R2022a
-Follow these steps to deploy the R2022a MATLAB Web App Server reference architecture on Microsoft Azure. To deploy reference architectures for other releases, see [Deploy Reference Architecture for Your Release](/README.md#deploy-reference-architecture-for-your-release). 
+Follow these steps to deploy the R2022a MATLAB Web App Server reference architecture on Microsoft Azure. To deploy reference architectures for other releases, see [Deploy Reference Architecture for Your Release](/README.md#deploy-reference-architecture-for-your-release).
 
 ## Step 1. Launch Template
 To deploy resources on Azure, click **Deploy to Azure**. The Azure Portal open in your web browser.
 
-<a  href ="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmathworks-ref-arch%2Fmatlab-web-app-server-on-azure%2Fmain%2Freleases%2FR2022a%2Ftemplates%2FmainTemplate.json"  target ="_blank" >  <img src="https://aka.ms/deploytoazurebutton"/>  </a>
+<a  href ="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FADAS-antonio-calatayud%2Fmatlab-web-app-server-on-azure%2Fmain%2Freleases%2FR2022a%2Ftemplates%2FmainTemplate.json"  target ="_blank" >  <img src="https://aka.ms/deploytoazurebutton"/>  </a>
 
 > MATLAB Release: R2022a
 
@@ -38,7 +38,7 @@ Provide values for parameters in the custom deployment template on the Azure Por
 
 Click **Create** to begin the deployment. This can take up to 10 minutes.
 
-## Step 3. Upload License File   
+## Step 3. Upload License File
 1. In the Azure Portal, click **Resource
     groups** and select the resource group containing your cluster resources.
 1. Select **Deployments** from the left pane and click **Microsoft.Template**.
@@ -51,9 +51,9 @@ Click **Create** to begin the deployment. This can take up to 10 minutes.
 1.  In the Azure Portal, click **Resource
     groups** and select the resource group you created for this deployment from the list.
 1.  Select **Deployments** from the left pane and click **Microsoft.Template**.
-1.  Click **Outputs** from the left pane. Copy the parameter value for **webAppServerURL** and paste it in a browser.  
+1.  Click **Outputs** from the left pane. Copy the parameter value for **webAppServerURL** and paste it in a browser.
 
-You are now ready to use MATLAB Web App Server on Azure. 
+You are now ready to use MATLAB Web App Server on Azure.
 
 To run applications on MATLAB Web App Server, you need to create applications using MATLAB Compiler. For more information, see [Create Web App](https://www.mathworks.com/help/compiler/webapps/create-and-deploy-a-web-app.html) in the MATLAB Compiler documentation.
 
